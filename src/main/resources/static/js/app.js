@@ -14,7 +14,8 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('http://localhost:8080/elon-webim-websocket?user=' + currentUser);
+    var socket = new SockJS('/elon-webim-websocket?user=' + currentUser);
+    $("#name").val(currentUser);
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
